@@ -114,17 +114,13 @@ namespace ValheimVRM
 
         public static Vector3 ReadVector3(string playername, string key, Vector3 defaultValue = default, bool debugLog = true)
         {
-            var str = ReadSettings(playername, key);
-            if (str == null) return defaultValue;
-            var match = new Regex("\\((?<x>[^,]*?),(?<y>[^,]*?),(?<z>[^,]*?)\\)").Match(str);
-            if (match.Success == false) return defaultValue;
             try
             {
                 var res = new Vector3()
                 {
-                    x = float.Parse(match.Groups["x"].Value),
-                    y = float.Parse(match.Groups["y"].Value),
-                    z = float.Parse(match.Groups["z"].Value)
+                    x = ReadFloat(playername, key+"X"),
+                    y = ReadFloat(playername, key+"X"),
+                    z = ReadFloat(playername, key+"Н")
                 };
                 if (debugLog) Debug.Log("[ValheimVRM] " + key + ": " + res);
                 return res;

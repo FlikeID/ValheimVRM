@@ -1,3 +1,5 @@
+# A fork of the code that fixes the problem with the position of the hands
+
 # ValheimVRM
 
 Mod to replace Valheim player with VRM model.
